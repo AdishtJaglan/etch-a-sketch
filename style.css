@@ -3,17 +3,28 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-items: center;
 }
 
 .container {
-    height: 512px;
-    width: 512px;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .grid {
-    width: 32px;
-    height: 32px;
-    background-color: rgb(238, 234, 229);
+    display: flex;
+    flex-wrap: wrap;
+    width: 480px;
+}
+
+.gridSquare {
+    background-color: rgb(9, 0, 0);
+}
+
+.gridSquare::before {
+    content: '';
+    display: block;
+    padding-top: 100%;
 }

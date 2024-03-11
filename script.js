@@ -1,5 +1,7 @@
 const container = document.querySelector(".container");
-const grids = document.querySelectorAll(".grid");
+const gridContainer = document.querySelector(".grid");
+
+let pixels;
 
 const createRandomColor = () => {
     const r = Math.floor(Math.random() * 256);
@@ -9,13 +11,24 @@ const createRandomColor = () => {
     return `rgb(${r},${g},${b})`;
 };
 
-for (let i = 0; i < 16 * 16; i++) {
-    const square = document.createElement("div");
-    square.classList.add("grid")
+const createGrid = (pixels = "16") => {
+    for (let i = 0; i < pixels; i++) {
+        for (let j = 0; j < pixels; j++) {
+            const row = document.createElement("div");
+            row.classList.add("row");
 
-    container.appendChild(square);
+            const gridSquare = document.createElement("div");
+            gridSquare.classList.add("gridSquare");
+            gridSquare.style.width = "calc(100% / " + pixels + ")";
+            gridSquare.style.height = "calc(100% / " + pixels + ")";
 
-    square.addEventListener("mouseover", () => {
-        square.style.backgroundColor = createRandomColor();
-    });
-}
+            gridSquare.addEventListener("mouseover", () => {
+                gridSquare.style.backgroundColor = createRandomColor();
+            });
+
+            gridContainer.appendChild(gridSquare);
+        }
+    }
+};
+
+createGrid();
