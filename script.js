@@ -43,4 +43,9 @@ const choosePixel = () => {
     return createGrid(userPixels);
 };
 
+const reset = () => {
+    gridContainer.innerHTML = "";
+    createGrid();
+};
+
 createGrid();
