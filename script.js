@@ -1,5 +1,6 @@
 const container = document.querySelector(".container");
 const gridContainer = document.querySelector(".grid");
+const body = document.querySelector("body");
 
 let pixels;
 
@@ -29,6 +30,17 @@ const createGrid = (pixels = "16") => {
             gridContainer.appendChild(gridSquare);
         }
     }
+};
+
+const choosePixel = () => {
+    const userPixels = prompt("Enter dimension of pixel:", 16);
+
+    if (userPixels >= 100) {
+        return prompt("Enter value less than 100");
+    }
+
+    gridContainer.innerHTML = "";
+    return createGrid(userPixels);
 };
 
 createGrid();
